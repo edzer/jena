@@ -1,7 +1,7 @@
 ---
 title: "Raster and vector data cubes in R"
 author: "Edzer Pebesma, @edzerpebesma"
-date: "May 22, 2019, Jena [edzer.github.io/jena/](https://edzer.github.io/jena)"
+date: "May 22, 2019, Jena [edzer.github.io/jena/](https://edzer.github.io/jena) ([rmd](https://github.com/edzer/jena/blob/master/cubes.Rmd))"
 output: 
   ioslides_presentation:
     logo: rubic.jpg
