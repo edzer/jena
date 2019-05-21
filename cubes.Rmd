@@ -140,13 +140,13 @@ plot(st_geometry((r5)), main = "curvilinear")
 - stack can be time-related
 - pixels are scalar, real-valued (custom mimicing factors)
 
-## What is wrong with R's native `array`?
+--- 
 
-- nothing!!
+- Is anything is wrong with R's native `array`? No!
 - dimensions can be named, dimension values labeled:
 ```{r echo=TRUE}
-array(1:8/8, c(2,2,2), dimnames = list(rows=c("a","b"), cols=c("p", "q"), 
-     layers=c("x", "y")))[,,1,drop=FALSE]
+array(1:8/8, c(2,2,2), dimnames = list(dim_1=c("a","b"), dim_2=c("p", "q"), 
+     dim_3=c("x", "y")))
 ```
 
 ----
@@ -203,7 +203,6 @@ plot(x)
 
 ```{r echo=TRUE}
 granule = system.file("sentinel/S2A_MSIL1C_20180220T105051_N0206_R051_T32ULE_20180221T134037.zip", package = "starsdata")
-file.size(granule)
 base_name = strsplit(basename(granule), ".zip")[[1]]
 s2 = paste0("SENTINEL2_L1C:/vsizip/", granule, "/", base_name, ".SAFE/MTD_MSIL1C.xml:10m:EPSG_32632")
 (p = read_stars(s2, proxy = TRUE))
@@ -256,7 +255,7 @@ knitr::include_graphics('gdalcubes.png')
 - allows for UDFs (user-defined functions, e.g. written in Python or R)
 - anticipates a federated, heterogeneous cloud big EO data computing landscape (EOSC, DIAS, TEPs/MEPs...)
 
-For me, `stars` was a blueprint, an exercise to answer parts of the question _how can we do this?_
+`stars` is somewhat of a blueprint, and useful client-side, or for server-side UDFs
 
 ## Wrapping up:
 
