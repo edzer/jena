@@ -99,6 +99,7 @@ From vector to raster:
 
 ```{r echo=FALSE}
 suppressPackageStartupMessages(library(stars))
+suppressPackageStartupMessages(library(ggplot2))
 x = 1:5
 y = 1:4
 d = st_dimensions(x = x, y = y, .raster = c("x", "y"))
@@ -189,6 +190,15 @@ tif = system.file("tif/L7_ETMs.tif", package = "stars")
 
 ```{r echo=TRUE}
 plot(x)
+```
+
+---
+
+```{r echo=TRUE}
+library(stars)
+library(ggplot2)
+ggplot() + geom_stars(data = x) + coord_equal() + facet_wrap(~band) + 
+  theme_void()  +  scale_x_discrete(expand=c(0,0)) + scale_y_discrete(expand=c(0,0))
 ```
 
 ## `stars_proxy` objects
